@@ -1,5 +1,7 @@
 ### ToDo
 
+- [ ] Mixins (es. transizioni, scrolling ecc)
+- [ ] Controllare classi principali layout
 - [ ] Component per link router non sottolineati
 - [ ] Component per link esterni/router
 - [ ] Il component usa v-slot per generare NavLink validato (user eccc)
