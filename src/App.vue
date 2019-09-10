@@ -10,10 +10,10 @@
         <span class="mr-2">Latest Release</span>
       </v-btn>
       <v-btn text>
-        <router-link to="/">Home</router-link>
+        <router-link to="/" tag="span" class="mr-2">Home</router-link>
       </v-btn>
       <v-btn text>
-        <router-link to="/about">About</router-link>
+        <router-link to="/about" tag="span" class="mr-2">About</router-link>
       </v-btn>
     </v-app-bar>
 
