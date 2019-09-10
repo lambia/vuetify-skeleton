@@ -1,17 +1,13 @@
 <template>
-  <div class="home">
-    <img alt="logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to the skeleton" />
-  </div>
+  <HelloWorld />
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import HelloWorld from '../components/HelloWorld';
 
 export default {
-  name: "home",
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+  },
 };
 </script>
