@@ -6,14 +6,15 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text href="/latest" target="_blank">
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-      <v-btn text to="/">
-        <span class="mr-2">Home</span>
-      </v-btn>
-      <v-btn text to="/about">
-        <span class="mr-2">About</span>
+      <v-btn
+        text
+        v-for="(item, i) in menuItems"
+        :key="i"
+        :href="item.href"
+        :target="item.target"
+        :to="item.to"
+      >
+        <span class="mr-2">{{ item.text }}</span>
       </v-btn>
     </v-app-bar>
 
@@ -32,7 +33,21 @@ export default {
     HelloWorld
   },
   data: () => ({
-    //
+    menuItems: [
+      {
+        text: "Google",
+        href: "https://www.google.it",
+        target: "_blank"
+      },
+      {
+        text: "Home",
+        to: "/"
+      },
+      {
+        text: "About",
+        to: "/about"
+      }
+    ]
   })
 };
 </script>

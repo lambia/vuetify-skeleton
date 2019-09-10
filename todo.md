@@ -1,6 +1,10 @@
 ### ToDo
 
 - [ ] Menu compatibile mobile
+- [ ] Menu resta hoverato quando cliccki
+- [ ] Menu icons
+- [ ] Spinner loader globale
+- [ ] Spinner loader come primo component, che poi carica home?
 - [ ] Mixins (es. transizioni, scrolling ecc)
 - [ ] Controllare classi principali layout
 - [ ] Component per link router non sottolineati
