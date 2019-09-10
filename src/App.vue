@@ -9,11 +9,11 @@
       <v-btn text href="/latest" target="_blank">
         <span class="mr-2">Latest Release</span>
       </v-btn>
-      <v-btn text>
-        <router-link to="/" tag="span" class="mr-2">Home</router-link>
+      <v-btn text to="/">
+        <span class="mr-2">Home</span>
       </v-btn>
-      <v-btn text>
-        <router-link to="/about" tag="span" class="mr-2">About</router-link>
+      <v-btn text to="/about">
+        <span class="mr-2">About</span>
       </v-btn>
     </v-app-bar>
 

@@ -1,5 +1,6 @@
 ### ToDo
 
+- [ ] Menu compatibile mobile
 - [ ] Mixins (es. transizioni, scrolling ecc)
 - [ ] Controllare classi principali layout
 - [ ] Component per link router non sottolineati
