@@ -6,7 +6,7 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="d-none d-sm-block">
+      <v-toolbar-items>
         <v-btn
           v-for="(item, i) in menu.items"
           :key="i"
@@ -17,6 +17,7 @@
           text
           :icona="(item.icon!=undefined)?true:false"
           exact="true"
+          class="d-none d-sm-flex"
         >
           <v-icon center class="mx-2 mx-md-1">{{ item.icon }}</v-icon>
           <span class="d-none d-md-block mx-1">{{ item.title }}</span>
