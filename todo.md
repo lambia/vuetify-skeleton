@@ -1,9 +1,10 @@
 ### ToDo
 
-- [ ] toggle drawer senza errori
-- [ ] voce "chiudi" menu
+- [x] toggle drawer senza errori
+- [ ] voce "chiudi" menu in drawer
+- [ ] separa drawer e menu e rendi veri component
 
-- [ ] Menu resta hoverato quando cliccki
+- [ ] i bottoni restano hoverati quando clicchi (::focus??)
 - [ ] Testare history mode per router
 - [ ] Spinner loader globale
 - [ ] Spinner loader come primo component, che poi carica home?
