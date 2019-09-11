@@ -1,16 +1,17 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 import colors from 'vuetify/lib/util/colors'
+import config from '@/config/globals.js';
 
 Vue.use(Vuetify);
 
 export default new Vuetify({
     theme: {
-        dark: false,
+        dark: config.dark.theme,
         themes: {
             light: {
-                primary: colors.cyan.darken1,
-                secondary: colors.red.lighten4,
+                primary: colors.cyan.base, //es. link
+                secondary: colors.lightBlue.accent3,
                 accent: colors.indigo.base,
                 error: '#FF5252',
                 info: '#2196F3',
@@ -18,8 +19,8 @@ export default new Vuetify({
                 warning: '#FFC107',
             },
             dark: {
-                primary: colors.cyan.darken1,
-                secondary: colors.cyan.lighten4,
+                primary: colors.cyan.base,
+                secondary: colors.cyan.darken2,
                 accent: colors.indigo.base,
             },
         },

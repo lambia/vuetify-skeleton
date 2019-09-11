@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app :elevation="2">
+    <v-app-bar app :elevation="2" class="secondary" :dark="$config.dark.secondary">
       <v-toolbar-title>
         <span>Vuetify</span>
         <span class="font-weight-light">MATERIAL DESIGN</span>
