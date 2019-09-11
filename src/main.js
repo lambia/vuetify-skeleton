@@ -12,7 +12,7 @@ Vue.config.productionTip = false
 
 //Vue.prototype.$appName = "skeleton";
 //Vue.prototype.$eventBus = new Vue();
-//window.eventBus = new Vue();
+window.EventBus = new Vue();
 
 new Vue({
     router,

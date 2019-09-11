@@ -1,60 +1,7 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      v-model="state.drawer"
-      @transitionend="onDrawerChange"
-      right
-      temporary
-      app
-      disable-resize-watcher
-      disable-route-watcher
-    >
-      <v-list dense nav>
-        <v-list-item
-          v-for="(item, i) in config.menu.items"
-          :key="i"
-          link
-          :href="item.href"
-          :target="item.target"
-          :to="item.to"
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar app :elevation="2" class="secondary" :dark="$config.dark.secondary">
-      <v-toolbar-title>
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn
-          v-for="(item, i) in config.menu.items"
-          :key="i"
-          :href="item.href"
-          :target="item.target"
-          :to="item.to"
-          :color="(item.color!==undefined)?item.color:config.menu.color"
-          text
-          :exact="true"
-          class="d-none d-sm-flex"
-        >
-          <v-icon center class="mx-2 mx-md-1">{{ item.icon }}</v-icon>
-          <span class="d-none d-md-block mx-1">{{ item.title }}</span>
-        </v-btn>
-        <v-btn text class="d-sm-none d-flex" @click="toggleDrawer">
-          <v-icon center class="mx-2 mx-md-1">{{ config.menu.mobile.icon }}</v-icon>
-          <span class="d-none d-md-block mx-1">{{ config.menu.mobile.title }}</span>
-        </v-btn>
-      </v-toolbar-items>
-    </v-app-bar>
+    <navbar :eventBus="eventBus" :items="config.menu.items" :options="config.menu.options" />
+    <drawer :eventBus="eventBus" :items="config.menu.items" />
 
     <v-content>
       <router-view></router-view>
@@ -63,39 +10,43 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import Navbar from "./components/common/Navbar";
+import Drawer from "./components/common/Drawer";
 import { readlink } from "fs";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
-  },
-  methods: {
-    toggleDrawer() {
-      this.state.drawer = !this.state.drawer;
-    },
-    onDrawerChange() {
-      console.log("Breakpoint XS: ", $vuetify.breakpoint.xsOnly);
-    }
+    Navbar,
+    Drawer
   },
   data: () => ({
-    state: {
-      drawer: false
-    },
+    eventBus: window.EventBus,
     config: {
+      drawer: {
+        options: {
+          close: {
+            title: "Nascondi",
+            icon: "mdi-close"
+          }
+        }
+      },
       menu: {
-        color: "white",
-        mobile: {
-          title: "Mostra menu", //ToDo: convertire in risorse
-          icon: "mdi-menu"
+        options: {
+          color: "white"
         },
         items: [
-          //   {
-          //     title: "Google",
-          //     href: "https://www.google.it",
-          //     target: "_blank"
-          //   },
+          {
+            title: "Chiudi",
+            icon: "mdi-close",
+            event: {
+              click: {
+                channel: "drawer.toggle",
+                payload: false
+              }
+            },
+            hideFrom: "Navbar"
+          },
           {
             title: "Home",
             to: "/",
@@ -107,6 +58,17 @@ export default {
             to: "/about",
             icon: "mdi-account",
             class: "d-none d-sm-flex"
+          },
+          {
+            title: "Mostra menu",
+            icon: "mdi-menu",
+            class: "d-sm-none d-flex",
+            event: {
+              click: {
+                channel: "drawer.toggle"
+              }
+            },
+            hideFrom: "Drawer"
           }
         ]
       }

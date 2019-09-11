@@ -1,8 +1,11 @@
 ### ToDo
 
 - [x] toggle drawer senza errori
-- [ ] voce "chiudi" menu in drawer
-- [ ] separa drawer e menu e rendi veri component
+- [x] separa drawer e menu e rendi veri component
+- [x] voce "chiudi" menu in drawer
+- [ ] hideFrom="" ==> includes(validFor=[])
+- [ ] permetti il passaggio auto-key
+- [ ] @click="eventHandler(item.event.click)" ==> @qualcosa="eventHandler(item.events)
 
 - [ ] i bottoni restano hoverati quando clicchi (::focus??)
 - [ ] Testare history mode per router
