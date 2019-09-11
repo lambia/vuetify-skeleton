@@ -1,8 +1,9 @@
 ### ToDo
 
-- [ ] Menu compatibile mobile
+- [ ] toggle drawer senza errori
+- [ ] voce "chiudi" menu
+
 - [ ] Menu resta hoverato quando cliccki
-- [ ] Menu icons
 - [ ] Testare history mode per router
 - [ ] Spinner loader globale
 - [ ] Spinner loader come primo component, che poi carica home?
@@ -20,3 +21,5 @@
 
 - [x] Installa vuetify
 - [x] Integra vuetify e router
+- [x] Menu compatibile mobile
+- [x] Menu icons
