@@ -1,6 +1,6 @@
 export default {
     appName: "skeleton",
-    dark: {
+    dark: { //is it dark?
         theme: false,
         primary: false,
         secondary: true,

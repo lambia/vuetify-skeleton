@@ -6,16 +6,22 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        text
-        v-for="(item, i) in menuItems"
-        :key="i"
-        :href="item.href"
-        :target="item.target"
-        :to="item.to"
-      >
-        <span class="mr-2">{{ item.text }}</span>
-      </v-btn>
+      <v-toolbar-items class="d-none d-sm-block">
+        <v-btn
+          v-for="(item, i) in menu.items"
+          :key="i"
+          :href="item.href"
+          :target="item.target"
+          :to="item.to"
+          :color="(item.color!=undefined)?item.color:menu.config.color"
+          text
+          :icona="(item.icon!=undefined)?true:false"
+          exact="true"
+        >
+          <v-icon center class="mx-2 mx-md-1">{{ item.icon }}</v-icon>
+          <span class="d-none d-md-block mx-1">{{ item.title }}</span>
+        </v-btn>
+      </v-toolbar-items>
     </v-app-bar>
 
     <v-content>
@@ -26,6 +32,7 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld";
+import { readlink } from "fs";
 
 export default {
   name: "App",
@@ -33,21 +40,28 @@ export default {
     HelloWorld
   },
   data: () => ({
-    menuItems: [
-      {
-        text: "Google",
-        href: "https://www.google.it",
-        target: "_blank"
+    menu: {
+      config: {
+        color: "white"
       },
-      {
-        text: "Home",
-        to: "/"
-      },
-      {
-        text: "About",
-        to: "/about"
-      }
-    ]
+      items: [
+        //   {
+        //     title: "Google",
+        //     href: "https://www.google.it",
+        //     target: "_blank"
+        //   },
+        {
+          title: "Home",
+          to: "/",
+          icon: "mdi-home"
+        },
+        {
+          title: "About",
+          to: "/about",
+          icon: "mdi-account"
+        }
+      ]
+    }
   })
 };
 </script>
