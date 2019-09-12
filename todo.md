@@ -15,7 +15,7 @@
 - [ ] vue.config, app.config, babel ecc
 - [ ] Il component usa v-slot per generare NavLink validato (user eccc)
 - [ ] Importare il color-pack vuetify
-- [ ] Creare testing-units
+- [ ] Creare testing-units e inserire Sentry
 - [ ] Internazionalizzazione
 
 ### Done
