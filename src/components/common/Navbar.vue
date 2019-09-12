@@ -13,11 +13,11 @@
           :color="(item.color!==undefined)?item.color:options.color"
           text
           :exact="true"
-          @click="eventHandler(item.click)"
           :href="item.href"
           :target="item.target"
           :to="item.to"
           :class="item.class"
+          v-on="eventHandler(item.events)"
         >
           <v-icon center class="mx-2 mx-md-1">{{ item.icon }}</v-icon>
           <span class="d-none d-md-block mx-1">{{ item.title }}</span>
@@ -36,10 +36,24 @@ export default {
     options: Object
   },
   methods: {
-    eventHandler(e) {
-      if (e) {
-        this.eventBus.$emit(e.channel, e.payload);
+    eventHandler(events) {
+      let self = this;
+      let eventHandlers = {
+        ...self.$listeners
+      };
+
+      if (events) {
+        let eventsKeys = Object.keys(events);
+
+        for (let i = 0; i < eventsKeys.length; i++) {
+          const event = eventsKeys[i];
+          eventHandlers[event] = function(e) {
+            self.eventBus.$emit(events[event].channel, events[event].payload);
+          };
+        }
       }
+
+      return eventHandlers;
     }
   },
   data: () => ({

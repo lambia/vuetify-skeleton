@@ -39,9 +39,11 @@ export default {
           {
             title: "Chiudi",
             icon: "mdi-close",
-            click: {
-              channel: "drawer.toggle",
-              payload: false
+            events: {
+              click: {
+                channel: "drawer.toggle",
+                payload: false
+              }
             },
             hideFrom: "Navbar"
           },
@@ -61,8 +63,10 @@ export default {
             title: "Mostra menu",
             icon: "mdi-menu",
             class: "d-sm-none d-flex",
-            click: {
-              channel: "drawer.toggle"
+            events: {
+              click: {
+                channel: "drawer.toggle"
+              }
             },
             hideFrom: "Drawer"
           }
@@ -72,3 +76,16 @@ export default {
   })
 };
 </script>
+
+<style>
+/* Togli il focus dai bottoni */
+.v-btn:focus::before {
+  opacity: 0 !important;
+}
+/* .v-btn:not(.v-btn--active):focus::before {
+  opacity: 0 !important;
+} */
+.v-btn--active:focus::before {
+  opacity: 0.24 !important;
+}
+</style>
