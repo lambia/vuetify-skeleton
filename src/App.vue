@@ -93,13 +93,6 @@ export default {
               Navbar: {
                 props: {
                   class: "d-sm-none d-flex"
-                },
-                events: {
-                  /* testare handler add/override */
-                  click: {
-                    channel: "debug",
-                    payload: "clicked mostra menu"
-                  }
                 }
               },
               Drawer: { hidden: true }

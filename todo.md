@@ -1,7 +1,7 @@
 ### ToDo
 
-- [ ] events multicanale (array di channel/payload)
-- [ ] implementare add/merge (es. props, class, events)
+- [ ] events multicanale (array di channel/payload) / merge eventi
+- [ ] implementare merge (es. props, class, events)
 - [ ] sotto-component che passa le props invece della funzione
 - [ ] passare hidden nelle props (o al massimo class-d-none)
 - [ ] uniformare navbar e drawer (es. options, getProps ecc)
@@ -31,4 +31,4 @@
 - [x] Rimuovi :focus dai bottoni
 - [x] Ereditarietà props diretta (da oggetto)
 - [x] Separare le prop per component (es. hidden)
-- [x] Ereditarietà + Override delle prop
+- [x] Ereditarietà + Override delle prop e degli eventi

@@ -12,7 +12,7 @@
           :key="i"
           text
           :exact="true"
-          v-on="eventHandler(item.events)"
+          v-on="eventHandler(item)"
           v-bind="getProps(item)"
         >
           <v-icon center class="mx-2 mx-md-1">{{ item.icon }}</v-icon>
@@ -51,8 +51,10 @@ export default {
       }
       return props;
     },
-    eventHandler(events) {
+    eventHandler(object) {
       let self = this;
+      let events = object.events;
+      let override = object.override[this.name].events;
       let eventHandlers = {
         ...self.$listeners
       };
@@ -64,6 +66,20 @@ export default {
           const event = eventsKeys[i];
           eventHandlers[event] = function(e) {
             self.eventBus.$emit(events[event].channel, events[event].payload);
+          };
+        }
+      }
+
+      if (override) {
+        let eventsKeys = Object.keys(override);
+
+        for (let i = 0; i < eventsKeys.length; i++) {
+          const event = eventsKeys[i];
+          eventHandlers[event] = function(e) {
+            self.eventBus.$emit(
+              override[event].channel,
+              override[event].payload
+            );
           };
         }
       }
