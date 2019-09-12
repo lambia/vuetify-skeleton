@@ -33,7 +33,9 @@ export default {
       },
       menu: {
         options: {
-          color: "white"
+          props: {
+            color: "white"
+          }
         },
         items: [
           {
@@ -45,30 +47,67 @@ export default {
                 payload: false
               }
             },
-            hideFrom: "Navbar"
+            override: {
+              Navbar: {
+                hidden: true
+              }
+            }
           },
           {
             title: "Home",
-            to: "/",
             icon: "mdi-home",
-            class: "d-none d-sm-flex"
+            props: {
+              to: "/"
+            },
+            override: {
+              Navbar: {
+                props: {
+                  class: "d-none d-sm-flex"
+                }
+              }
+            }
           },
           {
             title: "About",
-            to: "/about",
             icon: "mdi-account",
-            class: "d-none d-sm-flex"
+            props: {
+              to: "/about"
+            },
+            override: {
+              Navbar: {
+                props: {
+                  class: "d-none d-sm-flex"
+                }
+              }
+            }
           },
           {
             title: "Mostra menu",
             icon: "mdi-menu",
-            class: "d-sm-none d-flex",
             events: {
-              click: {
-                channel: "drawer.toggle"
-              }
+              click: [
+                {
+                  channel: "drawer.toggle"
+                }
+              ]
             },
-            hideFrom: "Drawer"
+            override: {
+              Navbar: {
+                props: {
+                  class: "d-sm-none d-flex"
+                },
+                events: {
+                  /* testare handler add/override */
+                  click: [
+                    {
+                      channel: "debug",
+                      payload: "clicked mostra menu"
+                    }
+                  ]
+                }
+              },
+              Drawer: { hidden: true }
+            }
           }
         ]
       }

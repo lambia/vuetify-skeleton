@@ -8,16 +8,12 @@
     <v-toolbar-items>
       <template v-for="(item, i) in items">
         <v-btn
-          v-if="item.hideFrom!=name"
+          v-if="!item.override || !item.override[name] || !item.override[name].hidden"
           :key="i"
-          :color="(item.color!==undefined)?item.color:options.color"
           text
           :exact="true"
-          :href="item.href"
-          :target="item.target"
-          :to="item.to"
-          :class="item.class"
           v-on="eventHandler(item.events)"
+          v-bind="getProps(item)"
         >
           <v-icon center class="mx-2 mx-md-1">{{ item.icon }}</v-icon>
           <span class="d-none d-md-block mx-1">{{ item.title }}</span>
@@ -36,6 +32,25 @@ export default {
     options: Object
   },
   methods: {
+    getProps(item) {
+      let props = [];
+      let self = this;
+
+      if (this.options && this.options.props) {
+        props.push(this.options.props);
+      }
+      if (item.props) {
+        props.push(item.props);
+      }
+      if (
+        item.override &&
+        item.override[this.name] &&
+        item.override[this.name].props
+      ) {
+        props.push(item.override[this.name].props);
+      }
+      return props;
+    },
     eventHandler(events) {
       let self = this;
       let eventHandlers = {

@@ -11,13 +11,11 @@
     <v-list dense nav>
       <template v-for="(item, i) in items">
         <v-list-item
-          v-if="item.hideFrom!=name"
+          v-if="!item.override || !item.override[name] || !item.override[name].hidden"
           :key="i"
           link
-          :href="item.href"
-          :target="item.target"
-          :to="item.to"
           v-on="eventHandler(item.events)"
+          v-bind="getProps(item)"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -39,6 +37,21 @@ export default {
     items: Array
   },
   methods: {
+    getProps(item) {
+      let props = [];
+
+      if (item.props) {
+        props.push(item.props);
+      }
+      if (
+        item.override &&
+        item.override[this.name] &&
+        item.override[this.name].props
+      ) {
+        props.push(item.override[this.name].props);
+      }
+      return props;
+    },
     eventHandler(events) {
       let self = this;
       let eventHandlers = {

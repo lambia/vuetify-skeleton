@@ -1,7 +1,10 @@
 ### ToDo
 
-- [ ] hideFrom="" ==> includes(validFor=[]) ==> separare completamente nello stesso item tutte le prop per destinazione
-- [ ] permetti il passaggio auto-key
+- [ ] events multicanale (array di channel/payload)
+- [ ] implementare add/merge (es. props, class, events)
+- [ ] sotto-component che passa le props invece della funzione
+- [ ] passare hidden nelle props (o al massimo class-d-none)
+- [ ] uniformare navbar e drawer (es. options, getProps ecc)
 - [ ] usare mixins/helpers per eventHandler, :focus, transizioni, scrolling e simili
 
 - [ ] Testare history mode per router
@@ -26,3 +29,6 @@
 - [x] Drawer e navbar con voci diverse in stesso array
 - [x] Drawer e navbar con Event Handler generico ed $emit
 - [x] Rimuovi :focus dai bottoni
+- [x] Ereditarietà props diretta (da oggetto)
+- [x] Separare le prop per component (es. hidden)
+- [x] Ereditarietà + Override delle prop
