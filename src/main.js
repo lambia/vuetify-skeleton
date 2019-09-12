@@ -10,9 +10,10 @@ Vue.use(Configuration, globals);
 
 Vue.config.productionTip = false
 
-//Vue.prototype.$appName = "skeleton";
-//Vue.prototype.$eventBus = new Vue();
-window.EventBus = new Vue();
+Vue.prototype.$eventBus = new Vue();
+if (process.env.NODE_ENV === "development") {
+    window.eventBus = Vue.prototype.$eventBus;
+}
 
 new Vue({
     router,

@@ -33,7 +33,6 @@
 export default {
   //name: "Drawer",
   props: {
-    eventBus: Object,
     items: Array
   },
   methods: {
@@ -64,7 +63,7 @@ export default {
         for (let i = 0; i < eventsKeys.length; i++) {
           const event = eventsKeys[i];
           eventHandlers[event] = function(e) {
-            self.eventBus.$emit(events[event].channel, events[event].payload);
+            self.$eventBus.$emit(events[event].channel, events[event].payload);
           };
         }
       }
@@ -83,7 +82,9 @@ export default {
     }
   },
   created() {
-    this.eventBus.$off("drawer.toggle").$on("drawer.toggle", this.toggleDrawer);
+    this.$eventBus
+      .$off("drawer.toggle")
+      .$on("drawer.toggle", this.toggleDrawer);
   },
   data: () => ({
     name: "Drawer",

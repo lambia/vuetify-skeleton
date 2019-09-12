@@ -27,7 +27,6 @@
 export default {
   //name: "Navbar",
   props: {
-    eventBus: Object,
     items: Array,
     options: Object
   },
@@ -65,7 +64,7 @@ export default {
         for (let i = 0; i < eventsKeys.length; i++) {
           const event = eventsKeys[i];
           eventHandlers[event] = function(e) {
-            self.eventBus.$emit(events[event].channel, events[event].payload);
+            self.$eventBus.$emit(events[event].channel, events[event].payload);
           };
         }
       }
@@ -76,7 +75,7 @@ export default {
         for (let i = 0; i < eventsKeys.length; i++) {
           const event = eventsKeys[i];
           eventHandlers[event] = function(e) {
-            self.eventBus.$emit(
+            self.$eventBus.$emit(
               override[event].channel,
               override[event].payload
             );

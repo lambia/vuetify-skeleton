@@ -1,7 +1,6 @@
 ### ToDo
 
-- [ ] component generico "Elelemnt" con "component-is"
-- [ ] capire come gestire eventbus (namespace, istanza o altro) per non passare le prop avanti e indietro
+- [ ] component generico "Element" con "component-is"
 
 - [ ] events multicanale (array di channel/payload) / merge eventi
 - [ ] implementare merge (es. props, class, events)
@@ -35,3 +34,4 @@
 - [x] Ereditarietà props diretta (da oggetto)
 - [x] Separare le prop per component (es. hidden)
 - [x] Ereditarietà + Override delle prop e degli eventi
+- [x] eventBus in ottica di framework + testing

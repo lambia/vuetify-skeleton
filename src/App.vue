@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <navbar :eventBus="eventBus" :items="config.menu.items" :options="config.menu.options" />
-    <drawer :eventBus="eventBus" :items="config.menu.items" />
+    <navbar :items="config.menu.items" :options="config.menu.options" />
+    <drawer :items="config.menu.items" />
 
     <v-content>
       <router-view></router-view>
@@ -21,7 +21,6 @@ export default {
     Drawer
   },
   data: () => ({
-    eventBus: window.EventBus,
     config: {
       drawer: {
         options: {
