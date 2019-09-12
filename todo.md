@@ -1,5 +1,8 @@
 ### ToDo
 
+- [ ] component generico "Elelemnt" con "component-is"
+- [ ] capire come gestire eventbus (namespace, istanza o altro) per non passare le prop avanti e indietro
+
 - [ ] events multicanale (array di channel/payload) / merge eventi
 - [ ] implementare merge (es. props, class, events)
 - [ ] sotto-component che passa le props invece della funzione
