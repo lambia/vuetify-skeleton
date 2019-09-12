@@ -85,11 +85,9 @@ export default {
             title: "Mostra menu",
             icon: "mdi-menu",
             events: {
-              click: [
-                {
-                  channel: "drawer.toggle"
-                }
-              ]
+              click: {
+                channel: "drawer.toggle"
+              }
             },
             override: {
               Navbar: {
@@ -98,12 +96,10 @@ export default {
                 },
                 events: {
                   /* testare handler add/override */
-                  click: [
-                    {
-                      channel: "debug",
-                      payload: "clicked mostra menu"
-                    }
-                  ]
+                  click: {
+                    channel: "debug",
+                    payload: "clicked mostra menu"
+                  }
                 }
               },
               Drawer: { hidden: true }
