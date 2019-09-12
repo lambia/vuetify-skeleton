@@ -7,7 +7,7 @@ import Configuration from './plugins/configuration';
 import globals from './config/globals';
 Vue.use(Configuration, globals);
 
-Vue.config.productionTip = true;
+Vue.config.productionTip = false;
 
 new Vue({
     router,

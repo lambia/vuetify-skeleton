@@ -24,11 +24,15 @@
 </template>
 
 <script>
+import Element from "@/components/common/Element";
 export default {
   //name: "Navbar",
   props: {
     items: Array,
     options: Object
+  },
+  components: {
+    Element
   },
   methods: {
     getProps(item) {
@@ -89,29 +93,6 @@ export default {
   data: () => ({
     name: "Navbar",
     state: {}
-    /* EXAMPLE PROPS (spostare da qui)
-    options: {
-      color: "white",
-      drawer: {
-        title: "Mostra menu",
-        icon: "mdi-menu"
-      }
-    },
-    items: [
-      {
-        title: "Home",
-        to: "/",
-        icon: "mdi-home",
-        class: "d-none d-sm-flex"
-      },
-      {
-        title: "Google",
-        href: "https://www.google.it",
-        icon: "mdi-account",
-        class: "d-none d-sm-flex"
-      }
-    ]
-    */
   })
 };
 </script>

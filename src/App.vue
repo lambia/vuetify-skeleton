@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Navbar from "./components/common/Navbar";
-import Drawer from "./components/common/Drawer";
+import Navbar from "@/components/common/Navbar";
+import Drawer from "@/components/common/Drawer";
 import { readlink } from "fs";
 
 export default {
