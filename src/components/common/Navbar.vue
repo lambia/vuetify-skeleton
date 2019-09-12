@@ -13,7 +13,7 @@
           :color="(item.color!==undefined)?item.color:options.color"
           text
           :exact="true"
-          @click="eventHandler(item.event.click)"
+          @click="eventHandler(item.click)"
           :href="item.href"
           :target="item.target"
           :to="item.to"
@@ -37,7 +37,9 @@ export default {
   },
   methods: {
     eventHandler(e) {
-      this.eventBus.$emit(e.channel, e.payload);
+      if (e) {
+        this.eventBus.$emit(e.channel, e.payload);
+      }
     }
   },
   data: () => ({

@@ -1,8 +1,5 @@
 ### ToDo
 
-- [x] toggle drawer senza errori
-- [x] separa drawer e menu e rendi veri component
-- [x] voce "chiudi" menu in drawer
 - [ ] hideFrom="" ==> includes(validFor=[])
 - [ ] permetti il passaggio auto-key
 - [ ] @click="eventHandler(item.event.click)" ==> @qualcosa="eventHandler(item.events)
@@ -27,3 +24,8 @@
 - [x] Integra vuetify e router
 - [x] Menu compatibile mobile
 - [x] Menu icons
+- [x] Drawer con toggle
+- [x] Drawer e navbar come componenti
+- [x] Drawer e navbar con $emit
+- [x] Drawer e navbar con unica base dati
+- [x] Drawer e navbar con voci diverse in stesso array

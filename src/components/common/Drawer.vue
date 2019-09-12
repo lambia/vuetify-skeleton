@@ -17,7 +17,7 @@
           :href="item.href"
           :target="item.target"
           :to="item.to"
-          @click="eventHandler(item.event['click'])"
+          @click="eventHandler(item.click)"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -40,7 +40,9 @@ export default {
   },
   methods: {
     eventHandler(e) {
-      this.eventBus.$emit(e.channel, e.payload);
+      if (e) {
+        this.eventBus.$emit(e.channel, e.payload);
+      }
     },
     toggleDrawer(value) {
       if (value != undefined) {

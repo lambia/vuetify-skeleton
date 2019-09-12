@@ -39,11 +39,9 @@ export default {
           {
             title: "Chiudi",
             icon: "mdi-close",
-            event: {
-              click: {
-                channel: "drawer.toggle",
-                payload: false
-              }
+            click: {
+              channel: "drawer.toggle",
+              payload: false
             },
             hideFrom: "Navbar"
           },
@@ -63,10 +61,8 @@ export default {
             title: "Mostra menu",
             icon: "mdi-menu",
             class: "d-sm-none d-flex",
-            event: {
-              click: {
-                channel: "drawer.toggle"
-              }
+            click: {
+              channel: "drawer.toggle"
             },
             hideFrom: "Drawer"
           }
