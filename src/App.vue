@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <navbar :items="config.menu.items" :options="config.menu.options" />
-    <drawer :items="config.menu.items" />
+    <drawer :items="config.menu.items" :options="config.menu.options" />
 
     <v-content>
       <router-view></router-view>
@@ -33,7 +33,16 @@ export default {
       menu: {
         options: {
           props: {
-            color: "white"
+            exact: true
+          },
+          override: {
+            Navbar: {
+              color: "white",
+              text: true
+            },
+            Drawer: {
+              link: true
+            }
           }
         },
         items: [

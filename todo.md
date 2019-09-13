@@ -1,7 +1,6 @@
 ### ToDo
 
 - [ ] component generico "Element" con "component-is"
-- [ ] è possibile rimuovere data.name dai components adesso?
 - [ ] components camelCase o CamelCase?
 - [ ] ricordarsi del globals per il tema ecc
 

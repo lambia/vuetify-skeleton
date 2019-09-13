@@ -7,17 +7,10 @@
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <template v-for="(item, i) in items">
-        <v-btn
-          v-if="!item.override || !item.override[name] || !item.override[name].hidden"
-          :key="i"
-          text
-          :exact="true"
-          v-on="eventHandler(item)"
-          v-bind="getProps(item)"
-        >
+        <Element :key="i" :config="item" :options="options" :caller="name" component="v-btn">
           <v-icon center class="mx-2 mx-md-1">{{ item.icon }}</v-icon>
           <span class="d-none d-md-block mx-1">{{ item.title }}</span>
-        </v-btn>
+        </Element>
       </template>
     </v-toolbar-items>
   </v-app-bar>
@@ -25,6 +18,7 @@
 
 <script>
 import Element from "@/components/common/Element";
+
 export default {
   //name: "Navbar",
   props: {
@@ -33,62 +27,6 @@ export default {
   },
   components: {
     Element
-  },
-  methods: {
-    getProps(item) {
-      let props = [];
-      let self = this;
-
-      if (this.options && this.options.props) {
-        props.push(this.options.props);
-      }
-      if (item.props) {
-        props.push(item.props);
-      }
-      if (
-        item.override &&
-        item.override[this.name] &&
-        item.override[this.name].props
-      ) {
-        props.push(item.override[this.name].props);
-      }
-      return props;
-    },
-    eventHandler(object) {
-      let self = this;
-      let events = object.events;
-      let override = object.override[this.name].events;
-      let eventHandlers = {
-        ...self.$listeners
-      };
-
-      if (events) {
-        let eventsKeys = Object.keys(events);
-
-        for (let i = 0; i < eventsKeys.length; i++) {
-          const event = eventsKeys[i];
-          eventHandlers[event] = function(e) {
-            self.$eventBus.$emit(events[event].channel, events[event].payload);
-          };
-        }
-      }
-
-      if (override) {
-        let eventsKeys = Object.keys(override);
-
-        for (let i = 0; i < eventsKeys.length; i++) {
-          const event = eventsKeys[i];
-          eventHandlers[event] = function(e) {
-            self.$eventBus.$emit(
-              override[event].channel,
-              override[event].payload
-            );
-          };
-        }
-      }
-
-      return eventHandlers;
-    }
   },
   data: () => ({
     name: "Navbar",
