@@ -7,7 +7,7 @@
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <template v-for="(item, i) in items">
-        <Element :key="i" :item="item" :props="props" :caller="name" component="v-btn">
+        <Element :key="i" :data="item" :props="props" :caller="name">
           <v-icon center class="mx-2 mx-md-1">{{ item.icon }}</v-icon>
           <span class="d-none d-md-block mx-1">{{ item.title }}</span>
         </Element>

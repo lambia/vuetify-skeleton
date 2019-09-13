@@ -10,7 +10,7 @@
   >
     <v-list dense nav>
       <template v-for="(item, i) in items">
-        <Element :key="i" :item="item" :caller="name" :props="props" component="v-list-item">
+        <Element :key="i" :data="item" :caller="name" :props="props">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
