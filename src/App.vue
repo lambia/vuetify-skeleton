@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <Navbar :items="config.links.items" :options="config.navbar.options" />
-    <Drawer :items="config.links.items" :options="config.drawer.options" />
+    <Navbar :items="config.links.items" :props="config.navbar" />
+    <Drawer :items="config.links.items" :props="config.drawer" />
 
     <v-content>
       <router-view></router-view>
@@ -23,21 +23,13 @@ export default {
   data: () => ({
     config: {
       drawer: {
-        options: {
-          props: {
-            exact: true,
-            link: true
-          }
-        }
+        exact: true,
+        link: true
       },
       navbar: {
-        options: {
-          props: {
-            exact: true,
-            color: "white",
-            text: true
-          }
-        }
+        exact: true,
+        color: "white",
+        text: true
       },
       links: {
         items: [

@@ -10,7 +10,7 @@
   >
     <v-list dense nav>
       <template v-for="(item, i) in items">
-        <Element :key="i" :config="item" :caller="name" :options="options" component="v-list-item">
+        <Element :key="i" :item="item" :caller="name" :props="props" component="v-list-item">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -30,7 +30,7 @@ export default {
   //name: "Drawer",
   props: {
     items: Array,
-    options: Object
+    props: Object
   },
   components: {
     Element

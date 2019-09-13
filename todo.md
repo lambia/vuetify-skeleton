@@ -1,16 +1,15 @@
 ### ToDo
 
-- [x] component generico "Element" con "component-is"
-- [ ] components camelCase o CamelCase?
-- [ ] ricordarsi del globals per il tema ecc
-
+- [x] sotto-component che passa le props invece della funzione
+- [-] implementare merge (es. props, class, events)
+- [_] passare hidden nelle props (o al massimo class-d-none)
+- [_] usare mixins/helpers per eventHandler, :focus, transizioni, scrolling e simili
 - [ ] events multicanale (array di channel/payload) / merge eventi
-- [ ] implementare merge (es. props, class, events)
-- [ ] sotto-component che passa le props invece della funzione
-- [ ] passare hidden nelle props (o al massimo class-d-none)
-- [ ] uniformare navbar e drawer (es. options, getProps ecc)
-- [ ] usare mixins/helpers per eventHandler, :focus, transizioni, scrolling e simili
+- [ ] threeshaking a-la-carte
+- [ ] events receiver per il component
+- [ ] passare al component i dati già overridati
 
+- [ ] ricordarsi del globals per il tema ecc
 - [ ] Testare history mode per router
 - [ ] Spinner loader globale
 - [ ] Spinner loader come primo component, che poi carica home?
@@ -37,3 +36,6 @@
 - [x] Separare le prop per component (es. hidden)
 - [x] Ereditarietà + Override delle prop e degli eventi
 - [x] eventBus in ottica di framework + testing
+- [x] component generico "Element" con "component-is"
+- [x] components CamelCase
+- [x] uniformare navbar e drawer (es. options, getProps ecc)

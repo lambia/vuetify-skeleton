@@ -1,7 +1,7 @@
 <template>
   <component
     :is="component"
-    v-if="!config.override || !config.override[caller] || !config.override[caller].hidden"
+    v-if="!item.override || !item.override[caller] || !item.override[caller].hidden"
     v-on="eventHandler()"
     v-bind="getProps()"
   >
@@ -19,9 +19,9 @@ export default {
     VListItem
   },
   props: {
-    config: Object,
+    item: Object,
     caller: String,
-    options: Object,
+    props: Object,
     component: String
   },
   data: () => ({
@@ -30,31 +30,23 @@ export default {
   }),
   methods: {
     getProps() {
-      let props = [];
+      let result = [];
 
-      if (this.options && this.options.props) {
-        props.push(this.options.props);
+      if (this.props) {
+        result.push(this.props);
       }
 
-      if (
-        this.options &&
-        this.options.override &&
-        this.options.override[this.caller]
-      ) {
-        props.push(this.options.override[this.caller]);
-      }
-
-      if (this.config.props) {
-        props.push(this.config.props);
+      if (this.item.props) {
+        result.push(this.item.props);
       }
       if (
-        this.config.override &&
-        this.config.override[this.caller] &&
-        this.config.override[this.caller].props
+        this.item.override &&
+        this.item.override[this.caller] &&
+        this.item.override[this.caller].props
       ) {
-        props.push(this.config.override[this.caller].props);
+        result.push(this.item.override[this.caller].props);
       }
-      return props;
+      return result;
     },
     eventHandler() {
       let self = this;
@@ -62,9 +54,9 @@ export default {
         ...self.$listeners
       };
 
-      if (this.config) {
-        if (this.config.events) {
-          let events = this.config.events;
+      if (this.item) {
+        if (this.item.events) {
+          let events = this.item.events;
           let eventsKeys = Object.keys(events);
 
           for (let i = 0; i < eventsKeys.length; i++) {
@@ -79,11 +71,11 @@ export default {
         }
 
         if (
-          this.config.override &&
-          this.config.override[this.caller] &&
-          this.config.override[this.caller].events
+          this.item.override &&
+          this.item.override[this.caller] &&
+          this.item.override[this.caller].events
         ) {
-          let override = this.config.override[this.caller].events;
+          let override = this.item.override[this.caller].events;
           let eventsKeys = Object.keys(override);
 
           for (let i = 0; i < eventsKeys.length; i++) {
