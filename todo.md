@@ -1,6 +1,6 @@
 ### ToDo
 
-- [ ] component generico "Element" con "component-is"
+- [x] component generico "Element" con "component-is"
 - [ ] components camelCase o CamelCase?
 - [ ] ricordarsi del globals per il tema ecc
 

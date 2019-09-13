@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <navbar :items="config.menu.items" :options="config.menu.options" />
-    <drawer :items="config.menu.items" :options="config.menu.options" />
+    <Navbar :items="config.links.items" :options="config.navbar.options" />
+    <Drawer :items="config.links.items" :options="config.drawer.options" />
 
     <v-content>
       <router-view></router-view>
@@ -24,27 +24,22 @@ export default {
     config: {
       drawer: {
         options: {
-          close: {
-            title: "Nascondi",
-            icon: "mdi-close"
+          props: {
+            exact: true,
+            link: true
           }
         }
       },
-      menu: {
+      navbar: {
         options: {
           props: {
-            exact: true
-          },
-          override: {
-            Navbar: {
-              color: "white",
-              text: true
-            },
-            Drawer: {
-              link: true
-            }
+            exact: true,
+            color: "white",
+            text: true
           }
-        },
+        }
+      },
+      links: {
         items: [
           {
             title: "Chiudi",
